@@ -4241,11 +4241,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eng Hazem\\Desktop\\Portal\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\eng Hazem\\Desktop\\Portal\\Portal\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\eng Hazem\\Desktop\\Portal\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\eng Hazem\\Desktop\\Portal\\Portal\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\eng Hazem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eng Hazem\\Desktop\\Portal\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\eng Hazem\\Desktop\\Portal\\Portal\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\eng Hazem\\AppData\\Roaming\\NuGet\\NuGet.Config"
