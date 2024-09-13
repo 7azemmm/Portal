@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Student>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +7,43 @@
     <h1 class="display-4">Welcome</h1>
     <p>Welcome to full Mark in chemistry Portal </a>.</p>
 </div>
+
+<a href="/Student/addStudent" class="btn btn-danger"> add Student</a>
+
+    <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th>Id</th>
+                 <th>Name</th>
+                 <th>Phone number</th>
+                 <th>parent phone number</th>
+                 <th>Group name</th>
+                 
+            </tr>
+    @foreach(var item in Model){
+        
+       
+      <tr>
+            <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Stud_Phone_number</td>
+        <td>@item.Stud_Parent_Phone_number</td>
+        <td> @foreach(Group group in ViewBag.Groups)
+            if(group.Id == @item.groupId){
+                @group.Name;
+            }
+            
+            
+            </td>
+        
+
+
+      </tr>
+       
+
+
+        
+    }
+
+    </table>
+
+  

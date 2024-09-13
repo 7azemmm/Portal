@@ -15,7 +15,7 @@ public class StudentController : Controller
    public IActionResult addStudent ()
    {
     var groups = context.Groups.ToList();
-        ViewBag.groups = groups;
+    ViewBag.groups = groups;
      return View();
    }
     public IActionResult AddStud( Student student)

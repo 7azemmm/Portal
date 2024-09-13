@@ -9,8 +9,6 @@ public class Group
 
     public string? Name {get; set;}
 
-
-     
    public virtual ICollection<Student>? Students {get; set;}
 
 

@@ -2,11 +2,14 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
 
+using WebApplication1.context;
+
 namespace WebApplication1.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    ApplicationContext context = new ApplicationContext();
 
     public HomeController(ILogger<HomeController> logger)
     {
@@ -14,8 +17,13 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
+    
     {
-        return View();
+        var students = context.Students.ToList();
+        var groups = context.Groups.ToList();
+        ViewBag.groups = groups;
+        return View(students);
+        
     }
 
     public IActionResult Privacy()

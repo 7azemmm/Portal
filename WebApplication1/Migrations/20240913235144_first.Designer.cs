@@ -12,8 +12,8 @@ using WebApplication1.context;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240909232855_first_Migration")]
-    partial class first_Migration
+    [Migration("20240913235144_first")]
+    partial class first
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,9 @@ namespace WebApplication1.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("EducationYear")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");

@@ -15,6 +15,8 @@ public class Student
 
      public string? Stud_Parent_Phone_number {get; set;}
 
+     public string ? EducationYear{get ;set;}
+
      public int groupId {get ; set;}
 
      [ForeignKey("groupId")]

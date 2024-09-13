@@ -1,0 +1,22 @@
+@model List<Group>
+
+<a asp-action="Add_group_view" asp-asp-controller="Group" class="btn btn-danger"> add new group </a>
+
+<table class="table table-bordered table-striped table-hover">
+
+   <tr> 
+    <td>ID</td>
+   <td>Name</td>
+   </tr>
+
+   @foreach(var item in Model){
+    <tr> 
+    <td>@item.Id</td>
+   <td>@item.Name</td>
+   </tr>
+   }
+
+
+
+
+</table>

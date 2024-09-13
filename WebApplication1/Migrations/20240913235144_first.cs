@@ -5,7 +5,7 @@
 namespace WebApplication1.Migrations
 {
     /// <inheritdoc />
-    public partial class first_Migration : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,6 +46,7 @@ namespace WebApplication1.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Stud_Phone_number = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Stud_Parent_Phone_number = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EducationYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     groupId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

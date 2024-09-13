@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>@ViewData["Title"] - Full Mark In Chemistry </title>
+  </head>
+  <body>
+    <div class="loader">
+      <h1>Loading<span>....</span></h1>
+    </div>
+    <div class="page-content index-page">
+      <div class="sidebar">
+        <div class="brand">
+          <i class="fa-solid fa-xmark xmark"></i>
+          <h3 class="brand-name">Full Mark In Chemistry</h3>
+        </div>
+        <ul>
+          <li>
+            <a asp-controller="Home" asp-action="Index" class="sidebar-link">
+              <i class="fa-regular fa-chart-bar fa-fw"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a asp-controller="Student" asp-action="Get_All_Students" class="sidebar-link">
+              <i class="fa-solid fa-gear fa-fw"></i>
+              <span>Students</span>
+            </a>
+          </li>
+
+           <li>
+            <a asp-controller="Group" asp-action="Index" class="sidebar-link">
+              <i class="fa-solid fa-gear fa-fw"></i>
+              <span>Groups</span>
+            </a>
+          </li>
+
+          <!-- ... other menu items with asp-controller and asp-action ... -->
+
+        </ul>
+      </div>
+      <main>
+        <div class="header">
+          <i class="fa-solid fa-bars bar-item"></i>
+          <div class="search">
+            <input type="search" placeholder="Type A Keyword" />
+          </div>
+
+          <div class="profile">
+            <span class="bell"><i class="fa-regular fa-bell fa-lg"></i></span>
+
+            <img src="~/images/avatar.png" alt="No Image" />
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="title">
+            <h1>@ViewData["Title"]</h1>
+          </div>
+          <div class="container">
+            <main role="main" class="pb-3">
+              @RenderBody()
+            </main>
+          </div>
+        </div>
+      </main>
+    </div>
+    
+    <script src="~/js/script.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+  </body>
+</html>

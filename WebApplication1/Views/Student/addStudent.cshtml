@@ -1,44 +1,46 @@
 @model Student
 
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Add New Student</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/Student/AddStud">
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter student's name" required>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="Stud_Phone_number" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="Stud_Phone_number" name="Stud_Phone_number" placeholder="Enter student's phone number" required>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="Stud_Parent_Phone_number" class="form-label">Parent's Phone Number</label>
+                            <input type="tel" class="form-control" id="Stud_Parent_Phone_number" name="Stud_Parent_Phone_number" placeholder="Enter parent's phone number" required>
+                        </div>
 
-<form method="post" action="/Student/AddStud">
+                        <div class="mb-3">
+                            <label for="GroupId" class="form-label">Group</label>
+                            <select class="form-select" name="groupId" id="GroupId" required>
+                                <option value="">Select a group</option>
+                                @foreach (Group group in ViewBag.groups)
+                                {
+                                    <option value="@group.Id">@group.Name</option>
+                                }
+                            </select>
+                        </div>
 
-  <div class="form-group">
-    <label for="Name">Name</label>
-    <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
-    
-  </div>
-
- 
-
-  <div class="form-check">
-    <label for="Stud_Phone_number"> Phone number</label>
-    <input type="text" class="form-control" id="Stud_Phone_number" name="Stud_Phone_number">
-  </div>
-
-   <div class="form-check">
-    <label for="Stud_Parent_Phone_number"> parent phone number</label>
-    <input type="text" class="form-control" id="Stud_Parent_Phone_number" name="Stud_Parent_Phone_number">
-  </div>
-
-  <div class="form-group">
-            <select class="form-control" name="groupId" id="GroupId">
-                @foreach (Group group in ViewBag.groups)
-                {
-                    <option value="@group.Id">@group.Name</option>
-                }
-            </select>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
- 
-   
-
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-<br>
-@* <br>
-<a href="/Instructor/Index"> index page </a> *@
+</div>
