@@ -12,6 +12,10 @@ public class Student_Attendance
 
     public string? Attendance_State {get ;set;}
 
-     
+    
+      public int studentId{get; set;}
+
+       [ForeignKey("studentId")]
+    public virtual Student? student {get ; set ;}
 
 }

@@ -39,6 +39,13 @@ public class GroupController : Controller
         return RedirectToAction("Index");
     }
 
+     public IActionResult Group_Student(){
+        var groups = context.Groups.ToList();
+       
+     return View(groups);
+    }
+
+
 
 
 

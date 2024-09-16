@@ -12,8 +12,8 @@ using WebApplication1.context;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240913235144_first")]
-    partial class first
+    [Migration("20240916210645_NewMigrations")]
+    partial class NewMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,7 +88,12 @@ namespace WebApplication1.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("studentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("studentId");
 
                     b.ToTable("Student_Attendance");
                 });
@@ -102,6 +107,17 @@ namespace WebApplication1.Migrations
                         .IsRequired();
 
                     b.Navigation("group");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Student_Attendance", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Student", "student")
+                        .WithMany()
+                        .HasForeignKey("studentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("student");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Group", b =>

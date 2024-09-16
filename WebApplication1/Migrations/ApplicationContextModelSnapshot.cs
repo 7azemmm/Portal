@@ -85,7 +85,12 @@ namespace WebApplication1.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("studentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("studentId");
 
                     b.ToTable("Student_Attendance");
                 });
@@ -99,6 +104,17 @@ namespace WebApplication1.Migrations
                         .IsRequired();
 
                     b.Navigation("group");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Student_Attendance", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Student", "student")
+                        .WithMany()
+                        .HasForeignKey("studentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("student");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Group", b =>

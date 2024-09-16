@@ -1,0 +1,17 @@
+@model List<Group>
+@* @{
+    SelectList groupItems = new SelectList(ViewBag.groups , "Id" , "Name");
+} *@
+
+<form method="get" asp-action="GetStudents" asp-controller="Student">
+    <div class="form-group">
+        <label for="groupSelect">Select a Group:</label>
+        <select name="groupId" id="groupSelect" class="form-control">
+            @foreach (var group in Model)
+            {
+                <option value="@group.Id">@group.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Get Students</button>
+</form>

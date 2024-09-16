@@ -1,0 +1,25 @@
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Get Student Attendance</h3>
+                </div>
+                <div class="card-body">
+                    <form method="get" asp-action="Get_Student_Attendance" asp-controller="Attendance">
+                        <div class="mb-3">
+                            <label for="ID" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="ID" name="ID" placeholder="Enter student's ID" required>
+                        </div>
+                       
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Find</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

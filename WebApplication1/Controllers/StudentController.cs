@@ -2,6 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.context;
 using WebApplication1.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace WebApplication1.Controllers;
 
@@ -26,7 +28,7 @@ public class StudentController : Controller
         }
        
         if(student.Name!=null && student.Stud_Phone_number!=null && student.Stud_Parent_Phone_number!=null){
-        student.groupId=1;
+       
          context.Students.Add(student);
         context.SaveChanges();
         }
@@ -41,6 +43,24 @@ public class StudentController : Controller
         var groups = context.Groups.ToList();
         ViewBag.groups = groups;
         return View(students);
+    }
+
+   
+   public async Task<IActionResult> GetStudents(int? groupId)
+    {
+        // Get all groups for the select input
+        ViewBag.Groups = await context.Groups.ToListAsync();
+
+        // If no groupId is provided, return all students
+        var students = groupId == null 
+            ? await context.Students.ToListAsync()
+            : await context.Students.Where(s => s.groupId == groupId).ToListAsync();
+
+        return View(students);
+    }
+
+    public IActionResult Search_For_Student(int id){
+        return View();
     }
 
 

@@ -1,0 +1,45 @@
+@model List<Student>
+
+@{
+    var groups = ViewBag.Groups as List<Group>;
+}
+
+<form method="post" asp-action="TakeAttendance" asp-controller="Attendance">
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Group Name</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>
+                        @{
+                            var group = groups.FirstOrDefault(g => g.Id == item.groupId);
+                            @group?.Name 
+                        }
+                    </td>
+                    <td>
+                        <input type="hidden" name="studentId" value="@item.Id" />
+                        <input type="hidden" name="Name" value="@item.Name" />
+                        <label for="present"> 
+                        <input type="checkbox" value="present" name="Attendance_State" id="present" /> present 
+                        </label>
+                         <label for="abscent"> 
+                        <input type="checkbox" value="abscent" name="Attendance_State" id="abscent" /> abscent 
+                        </label>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-danger">Take Attendance</button>
+</form>

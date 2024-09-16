@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\eng Hazem\Desktop\Portal\Portal\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/Attendance/Get_Student_Attendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0ZW5kYW5jZVxHZXRfU3R1ZGVudF9BdHRlbmRhbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/Group/Add_group_view.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcQWRkX2dyb3VwX3ZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/Group/Group_Student.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvdXBcR3JvdXBfU3R1ZGVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/Group/Index.cshtml]
@@ -50,8 +58,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxhZGRTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/Student/GetStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRTdHVkZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/Student/Get_All_Students.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRfQWxsX1N0dWRlbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/Student/Search_For_Student.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTZWFyY2hfRm9yX1N0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/eng Hazem/Desktop/Portal/Portal/WebApplication1/Views/_ViewImports.cshtml]
