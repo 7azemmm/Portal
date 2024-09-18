@@ -1,39 +1,39 @@
 @model List<Student>
 
-@{
-    var groups = ViewBag.Groups as List<Group>;
-}
-
 <form method="post" asp-action="TakeAttendance" asp-controller="Attendance">
     <table class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>StudentId</th>
                 <th>Name</th>
                 <th>Group Name</th>
                 <th>Attendance</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @for (int i = 0; i < Model.Count; i++)
             {
+                var item = Model[i];
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Name</td>
                     <td>
                         @{
-                            var group = groups.FirstOrDefault(g => g.Id == item.groupId);
-                            @group?.Name 
-                        }
+    var groups = ViewBag.groups as List<Group>; // Cast ViewBag.groups to List<Group>
+    var group = groups?.FirstOrDefault(g => g.Id == item.groupId); // Now it's safe to use lambda
+    @group?.Name 
+}
                     </td>
                     <td>
-                        <input type="hidden" name="studentId" value="@item.Id" />
-                        <input type="hidden" name="Name" value="@item.Name" />
-                        <label for="present"> 
-                        <input type="checkbox" value="present" name="Attendance_State" id="present" /> present 
+                      
+                        <input type="hidden" name="[@i].Name" value="@item.Name" />
+                        <input type="hidden" name="[@i].studentId" value="@item.Id" />
+                        
+                        <label>
+                            <input type="radio" name="[@i].Attendance_State" value="present" /> Present
                         </label>
-                         <label for="abscent"> 
-                        <input type="checkbox" value="abscent" name="Attendance_State" id="abscent" /> abscent 
+                        <label>
+                            <input type="radio" name="[@i].Attendance_State" value="abscent" /> Absent
                         </label>
                     </td>
                 </tr>
