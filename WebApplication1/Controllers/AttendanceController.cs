@@ -3,13 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
 
 using WebApplication1.context;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers;
 
+[Authorize]
 public class AttendanceController : Controller
 {
    
-    ApplicationContext context = new ApplicationContext();
+    ApplicationContext context;
+     public AttendanceController(ApplicationContext context, ILogger<AttendanceController> logger)
+    {
+        this.context = context;
+        // Use the logger as needed
+    }
 
   public IActionResult TakeAttendance(List<Student_Attendance> stud)
 {
@@ -21,7 +28,9 @@ public class AttendanceController : Controller
             
             Name = student.Name,
             Attendance_State = student.Attendance_State,
-            studentId = student.studentId 
+            studentId = student.studentId,
+            Quiz_Grade = student.Quiz_Grade ,
+            date = student.date
         };
 
         context.Student_Attendance.Add(studentAttendance);
@@ -31,7 +40,7 @@ public class AttendanceController : Controller
 
     Console.WriteLine(stud);
     Console.WriteLine(stud.Count);
-    return Content("attendance taken");
+    return RedirectToAction("index" , "Home");
 }
 
 public IActionResult Get_Student_Attendance(int ID)
@@ -40,6 +49,7 @@ public IActionResult Get_Student_Attendance(int ID)
     .Where(x => x.studentId == ID).ToList();
 
     var student = context.Students.Find(ID);
+    
     ViewBag.student = student ; 
 
     var groups = context.Groups.Find(ViewBag.student.groupId);

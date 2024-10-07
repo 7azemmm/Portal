@@ -3,18 +3,24 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
 
 using WebApplication1.context;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers;
+
+[Authorize]
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    ApplicationContext context = new ApplicationContext();
+    ApplicationContext context ;
 
-    public HomeController(ILogger<HomeController> logger)
+     public HomeController(ApplicationContext context, ILogger<HomeController> logger)
     {
-        _logger = logger;
+        this.context = context;
+        // Use the logger as needed
     }
+
+    
 
     public IActionResult Index()
     

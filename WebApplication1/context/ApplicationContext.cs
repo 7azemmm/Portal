@@ -7,10 +7,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using WebApplication1.IdentityModels;
 
 namespace WebApplication1.context
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {
         
         public virtual DbSet<Student_Attendance> Student_Attendance { get; set; }
@@ -18,14 +20,14 @@ namespace WebApplication1.context
         public virtual DbSet<Group> Groups { get; set; }
      
 
-
-        public ApplicationContext()
+       public ApplicationContext(DbContextOptions options):base(options)
         {
-            ChangeTracker.QueryTrackingBehavior=QueryTrackingBehavior.NoTracking;
+            
         }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Student_Portal ;Integrated Security=true;trustservercertificate=true;");
+           
            optionsBuilder.UseLazyLoadingProxies();
             optionsBuilder.LogTo(log=>Debug.WriteLine(log));
             

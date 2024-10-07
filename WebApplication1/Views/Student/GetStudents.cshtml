@@ -8,6 +8,7 @@
                 <th>Name</th>
                 <th>Group Name</th>
                 <th>Attendance</th>
+                <th>Quiz Grade</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +37,16 @@
                             <input type="radio" name="[@i].Attendance_State" value="abscent" /> Absent
                         </label>
                     </td>
+                    <td>
+    <label for="quiz-grade-[@i]">Quiz Grade:</label>
+    <input type="text" id="quiz-grade-[@i]" name="[@i].Quiz_Grade" value="" >
+</td>
+
+<td>
+    <label for="Date">Date</label>
+    <input type="Date" id="Date" name="[@i].date" value="" >
+</td>
+
                 </tr>
             }
         </tbody>
@@ -43,3 +54,16 @@
 
     <button type="submit" class="btn btn-danger">Take Attendance</button>
 </form>
+
+
+<script>
+    // Get the current date in YYYY-MM-DD format
+    const currentDate = new Date().toISOString().split('T')[0];
+    
+    // Select all date input elements and set their value to the current date
+    const dateInputs = document.querySelectorAll("input[type='date']");
+    
+    dateInputs.forEach(input => {
+        input.value = currentDate;
+    });
+</script>

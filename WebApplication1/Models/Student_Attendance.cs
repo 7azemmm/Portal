@@ -18,4 +18,8 @@ public class Student_Attendance
        [ForeignKey("studentId")]
     public virtual Student? student {get ; set ;}
 
+    public string? Quiz_Grade {get; set;}
+
+    public string? date{get; set;}  
+
 }

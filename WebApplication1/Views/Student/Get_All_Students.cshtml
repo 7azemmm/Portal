@@ -10,6 +10,7 @@
                  <th>Phone number</th>
                  <th>parent phone number</th>
                  <th>Group name</th>
+                 <th>Actions</th>
                  
             </tr>
     @foreach(var item in Model){
@@ -27,6 +28,12 @@
             
             
             </td>
+
+            <td> <a href="updateStudent/@item.Id" class="btn btn-danger"> Update </a>
+            
+              <a href="#" class="btn btn-danger" style="margin:10px;" onclick="confirmDelete(@item.Id)"> delete </a>
+            </td>
+            
         
 
 
@@ -38,5 +45,26 @@
     }
 
     </table>
+
+    <script>
+    function confirmDelete(studentId) {
+        // SweetAlert confirmation dialog
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If confirmed, redirect to the delete action
+                window.location.href = 'deleteStudent/' + studentId;
+            }
+        });
+    }
+</script>
+
 
 

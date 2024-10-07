@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+     <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.10/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.10/dist/sweetalert2.all.min.js"></script>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
@@ -29,9 +36,31 @@
           <h3 class="brand-name">Full Mark In Chemistry</h3>
         </div>
         <ul>
+
+          @if(!User.Identity.IsAuthenticated){
+            <li>
+            <a asp-controller="Account" asp-action="Register" class="sidebar-link">
+              <i class="fa-solid fa-user"></i>
+              <span>Register</span>
+            </a>
+          </li>
+          <li>
+            <a asp-controller="Account" asp-action="Login" class="sidebar-link">
+              <i class="fa-solid fa-user"></i>
+              <span>Login</span>
+            </a>
+          </li>
+          }else{
+
+            <li>
+            <a asp-controller="Home" asp-action="Index" class="sidebar-link">
+              <i class="fa-solid fa-user-tie"></i>
+              <span> Welcome @User.Identity.Name</span>
+            </a>
+          </li>
           <li>
             <a asp-controller="Home" asp-action="Index" class="sidebar-link">
-              <i class="fa-regular fa-chart-bar fa-fw"></i>
+              <i class="fa-solid fa-house"></i>
               <span>Dashboard</span>
             </a>
           </li>
@@ -45,27 +74,32 @@
 
            <li>
             <a asp-controller="Group" asp-action="Index" class="sidebar-link">
-              <i class="fa-solid fa-gear fa-fw"></i>
+              <i class="fa-solid fa-user-group"></i>
               <span>Groups</span>
             </a>
           </li>
 
           <li>
             <a asp-controller="Group" asp-action="Group_Student" class="sidebar-link">
-              <i class="fa-solid fa-gear fa-fw"></i>
+              <i class="fa-solid fa-clipboard-user"></i>
               <span> Take Attendance</span>
             </a>
           </li>
           
           <li>
             <a asp-controller="Student" asp-action="Search_For_Student" class="sidebar-link">
-              <i class="fa-solid fa-gear fa-fw"></i>
+              <i class="fa-solid fa-clipboard-user"></i>
               <span> Attendance for specific Student</span>
             </a>
           </li>
 
-          
-
+          <li>
+            <a asp-controller="Account" asp-action="LogOut" class="sidebar-link">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Log Out</span>
+            </a>
+          </li>
+          }
           <!-- ... other menu items with asp-controller and asp-action ... -->
 
         </ul>
@@ -74,7 +108,10 @@
         <div class="header">
           <i class="fa-solid fa-bars bar-item"></i>
           <div class="search">
-            <input type="search" placeholder="Type A Keyword" />
+            <form asp-action="Get_Student_Attendance" asp-controller="Attendance">
+            <input type="number" name="id" value=""  />
+            <input type="submit" class="btn btn-danger" style="padding: 10 px; margin: 5 px;">
+            </form>
           </div>
 
           <div class="profile">

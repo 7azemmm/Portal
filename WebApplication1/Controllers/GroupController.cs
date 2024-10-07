@@ -1,15 +1,23 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.context;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers;
 
+[Authorize]
 public class GroupController : Controller
 {
 
 
-   ApplicationContext context = new ApplicationContext();
+   ApplicationContext context ;
+
+    public GroupController(ApplicationContext context, ILogger<HomeController> logger)
+    {
+        this.context = context;
+        // Use the logger as needed
+    }
 
 
    public IActionResult Index ()
